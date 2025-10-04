@@ -8,11 +8,11 @@ const Movies = () => {
 
         // Fetch movies from FREE API
           useEffect(() => {
-              const fetchMovies = async () => {
+              const fetchMovies = async () =>{
                     try {
                             setLoading(true);
                                     // Using a free movie API (no API key needed)
-                                            const response = await fetch('https://api.sampleapis.com/movies/animation');
+                                            const response = await fetch('https://api.sampleapis.com/movies/drama');
                                                     
                                                             if (!response.ok) {
                                                                       throw new Error('Failed to fetch movies');
