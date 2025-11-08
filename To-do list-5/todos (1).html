@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<style>
+  
+</style>
+<body>
+  <header style='background-color: hotpink'>
+      <h1 class='text-light text-center'><strong>
+      
+    TO-DO LIST 
+      </strong>
+    
+    
+  </h1>
+  <div class="text-center">
+  <input type="text" placeholder="Enter your task" id="input" style='border-radius:9px' >
+  <button class= "btn btn-warning">
+    
+  Done
+  </button>
+  </div>
+</header>
+<ul id="ul" class="border border-5 border-warning p-3 rounded text-center gap-2">
+  <div class="d-flex gap-0">
+    
+  <div>
+      wake up at 7 am
+       <button class="btn btn-success">
+        done
+      </button>
+  </div>
+  <div>
+    eat 5star do nothing
+      <button class="btn btn-success">
+        done
+      </button>
+  </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</ul>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script>
+  <!--Tab to edit-->
+  let div = document.getElementById('ul');
+  console.log(div);
+  let inputTag= document.getElementById('input');
+  console.log(inputTag);
+let todosArray=JSON.parse(localStorage.getItem('todosArray'))||[];
+// {
+//    title:'wake up at 7 am',
+//    completed:false,
+//},
+ // {
+//    title:'eat 5star do nothing',
+//   completed:false,
+    
+//  }
+
+
+
+function todosinjs(){
+  todosArray.map(
+    (ele,index)=>{
+      return ele,index
+    }
+  )
+}
+  todosinjs();
+  function showtodos (){
+  div.innerHTML='';
+    todosArray.map(
+      (ele,index)=>{
+      
+        let todos =document.createElement('strong');
+        todos.innerHTML=`<div class='d-flex justify-content-center align-items-center gap-2 my-2'>
+       
+        <div class="${ele.completed ? 'text-decoration-line-through text-muted' : ''}">
+        ${ele.title}
+        </div>
+        <div>
+        <button class="btn btn-success" onClick="complete(${index})"> 
+          <!--Tab to edit-->
+           ${ele.completed?'success✅' : 'done'}
+        </button>
+        </div>
+        <div> 
+        <button class= 'btn btn-warning' onClick="editTodos(${index})">
+         edit
+</button>
+</div>
+        <button class="btn btn-danger" onClick="deleteTodo(${index})">
+          
+          delete
+        </button>
+        </div>`
+  div.appendChild(todos);
+        
+      })
+  }
+  function colour(){
+    div.style.color='hotpink'
+  }
+  colour();
+  showtodos();
+function complete(index){
+  todosArray[index].completed= !todosArray[index].completed;toLocalStorage();
+  showtodos();
+}
+function deleteTodo(position){
+  todosArray.splice(position,1);
+ toLocalStorage();
+  showtodos();
+  
+}
+  
+
+
+function addtodos(){
+  console.log(inputTag.value);
+  if(editing){
+todosArray[EditIndex].title = inputTag.value;
+ EditIndex = -1; 
+ editing = false; 
+button.textContent="done"
+
+} else {
+  todosArray.push(
+  {  title:inputTag.value,
+    completed:false
+  });
+  }
+  inputTag.value='';
+toLocalStorage();
+ showtodos();
+};
+let EditIndex = -1; 
+let editing = false; 
+function editTodos(index){
+	 EditIndex = index; 
+     editing = true; 
+inputTag.value=todosArray[index].title;
+button.textContent='update'
+}
+    function toLocalStorage(){
+    localStorage.setItem('todosArray',JSON.stringify(todosArray))
+    }
+
+let button=document.querySelector('.btn-warning');
+button.addEventListener('click',addtodos);
+
+
+
+
+
+
+
+
+</script>
+</body>
+
+</html>

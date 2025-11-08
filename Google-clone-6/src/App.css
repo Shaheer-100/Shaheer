@@ -1,0 +1,128 @@
+
+.img{
+    height: 92px;
+    width: 272px;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+  
+}
+.container{
+ display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    height: 50vh;
+}
+.input{
+ /* some of these css styles copied from Google's console */
+    
+    background-color: var(--color-searchbox-background);
+    border: none;
+    border-radius: 38px 42px ;
+    color: var(--color-searchbox-foreground);
+    font-family: inherit;
+    font-size: inherit;
+    height: 100%;
+    outline: none;
+    padding-inline-end: calc(var(--cr-searchbox-voice-icon-offset) + var(--cr-searchbox-voice-search-button-width) + var(--cr-searchbox-inner-icon-margin));
+    padding-inline-start: calc(52px + var(--cr-searchbox-thumbnail-icon-offset, 0px));
+    position: relative;
+    width: 36%;
+    max-width: 720px;
+    min-width: 280px;
+    height: 37px;
+    padding: 0 11px;
+    margin-top: 19px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.18);
+    transition: box-shadow 160ms ease, transform 120ms ease;
+    background-image: url('./assets/Google-Voice.svg.webp'), url('./assets/google-lens.png.webp');
+    background-position: right 40px center,right 10px center;
+    background-repeat: no-repeat;
+    background-size: 25px;
+ 
+  }   
+
+  
+.input:focus {
+    box-shadow: 0 4px 12px rgba(119, 170, 252, 0.18);
+    transform: translateY(-1px);
+    outline: none;
+}
+.invincible-lens-overlay,
+.invincible-voice-overlay {
+  position: absolute;
+  top: 28%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  margin-right: 31%;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0);
+
+}
+
+.invincible-voice-overlay {
+  right: 40px;
+}
+
+.invincible-lens-overlay {
+  right: 10px;
+}
+
+.invincible-lens-overlay:hover,
+.invincible-voice-overlay:hover {
+ 
+  border-radius: 50%;
+} 
+.search-btn-ctr {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.search-btn {
+  background-color: #f8f9fa;
+  border: 1px solid #f8f9fa;
+  border-radius: 4px;
+  color: #3c4043;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-btn:hover {
+  border: 1px solid #dadce0;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+.feeling-lucky:hover {
+  border: 1px solid #dadce0;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+@media (max-width : 768px) {
+    .invincible-lens-overlay,
+.invincible-voice-overlay {
+ top:  28% ;
+}
+
+}
+@media (max-width :480px){
+    .invincible-lens-overlay,
+.invincible-voice-overlay {
+   margin-right: 52px;
+   top: 29%;
+}
+}
+@media (max-width :380px){
+    .invincible-lens-overlay,
+.invincible-voice-overlay {
+   margin-right: 40px;
+   top: 30%;
+}
+}
+    
+    

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizee</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="quiz-container">
+
+        <div class="quiz-header">
+            <h1> Quizzes</h1>
+            <div class="score-board">
+                Score: <span id="score">0</span>/<span id="total">3</span>
+            </div>
+        </div>
+
+        
+        <div class="question-container">
+            <div class="question-number">
+                Question <span id="current-question">1</span> of <span id="total-questions">3</span>
+            </div>
+            <h2 id="question-text">What is the capital of France?</h2>
+            
+            
+            <div class="options-container" id="options-container">
+                
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="navigation-buttons">
+                <button id="prev-btn" class="btn" disabled>← Previous</button>
+                <button id="next-btn" class="btn btn-primary">Next →</button>
+                <button id="restart-btn" class="btn btn-restart">Restart Quiz</button>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div class="result-container" id="result-container" style="display: none;">
+            <h2>🎉 Quiz Completed!</h2>
+            <div class="final-score">
+                Your Score: <span id="final-score">0</span>/<span id="total-questions-final">3</span>
+            </div>
+            <p id="result-message"></p>
+            <button id="try-again-btn" class="btn btn-primary">Try Again</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+
+</body>
+</html>
